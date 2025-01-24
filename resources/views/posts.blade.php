@@ -36,7 +36,7 @@
                                     <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="form-group mt-2">
+                                <div class="mt-2 form-group">
                                     <button type="submit" class="btn btn-success btn-block"><i class="fa fa-save"></i> Submit</button>
                                 </div>
                             </form>
@@ -78,6 +78,8 @@
         <script type="module">
             Echo.channel('postsCreated').listen('PostCreate',(data) =>{
                 console.log(data);
+                var d1 = document.getElementById('notification');
+                d1.insertAdjacentHTML('beforeend', '<div class="alert alert-success alert-dismissible fade show"><span><i class="fa fa-circle-check"></i>  '+data.message+'</span></div>');
             })
             // function handleEvent(data){
             //     console.log(data);
